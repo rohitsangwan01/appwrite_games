@@ -19,6 +19,8 @@ class AppwriteThemeFlutter {
       );
 }
 
+// This data imported from Appwrite's Pink library
+
 class AppwriteBorder {
   static double borderRadiusXSmall = 4;
   static double borderRadiusSmall = 8;
