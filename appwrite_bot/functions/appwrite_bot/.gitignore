@@ -40,3 +40,4 @@ doc/api/
 # OS
 ## Mac
 .DS_Store
+local_env.dart

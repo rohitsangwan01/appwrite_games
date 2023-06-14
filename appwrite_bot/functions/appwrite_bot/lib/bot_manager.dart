@@ -29,7 +29,10 @@ class BotManager {
         "1. Chess\n"
         "2. Snake\n"
         "3. Dino\n"
-        "More games coming soon\n\n",
+        "More games coming soon\n\n"
+        "To play games in browser: https://rohitsangwan01.github.io/appwrite_games_web/ \n"
+        "Also you can build Mobile and desktop apps from this repo : https://github.com/rohitsangwan01/appwrite_games_web",
+        disableWebPagePreview: true,
       );
     });
 
