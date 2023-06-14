@@ -1,0 +1,56 @@
+name: appwrite_telegram
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.0.1 <4.0.0'
+
+dependencies: 
+  flutter: 
+    sdk: flutter
+  # flutter_telegram_web_app: ^0.0.1  
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  appwrite: ^8.3.0
+  simple_chess_board: ^0.7.0
+  chess: ^0.8.0
+  flutter_snake: ^1.1.0
+  get_storage: ^2.1.1
+  flutter_login: ^4.1.1
+  sidebar_drawer: ^0.0.1+1
+  flutter_dotenv: ^5.1.0
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  icons_launcher: ^2.0.5
+  app_rename: ^0.0.1
+  flutter_test:
+    sdk: flutter
+
+# flutter pub run app_rename:main all="Appwrite Games"
+# flutter pub run icons_launcher:create
+# flutter build appbundle
+icons_launcher:
+  image_path: "assets/icon.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+    web:
+      enable: true
+
+get_cli: 
+  sub_folder: false
+
+flutter: 
+  uses-material-design: true
+  assets:
+    - .env
+    - assets/
+    - assets/games/
+    - assets/games/dino/
+    - assets/games/dino/dino/
+    - assets/games/dino/cacti/
+    - assets/games/dino/ptera/
+
