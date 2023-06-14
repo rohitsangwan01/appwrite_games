@@ -23,6 +23,11 @@ make sure to add these environment variables in cloud functions
 - more coming soon..
 
 ## Screenshots
+![](https://github.com/rohitsangwan01/appwrite_games/assets/59526499/4fe39734-107a-4f1c-8a4b-b30c8d293bb2)
+
+![](https://github.com/rohitsangwan01/appwrite_games/assets/59526499/512fc519-17d7-44c1-98dd-0d944d257ac2)
+
+![](https://github.com/rohitsangwan01/appwrite_games/assets/59526499/7bb3b9f2-831f-447f-8406-62152a35b2d9)
 
 ## Note:
 
