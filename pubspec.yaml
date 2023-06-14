@@ -8,7 +8,7 @@ environment:
 dependencies: 
   flutter: 
     sdk: flutter
-  # flutter_telegram_web_app: ^0.0.1  
+  flutter_telegram_web_app: ^0.0.1  
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   appwrite: ^8.3.0
@@ -28,7 +28,7 @@ dev_dependencies:
   app_rename: ^0.0.1
   build_runner: ^2.4.5
   envied_generator: ^0.3.0+3
-
+  
 
 # flutter pub run app_rename:main all="Appwrite Games"
 # flutter pub run icons_launcher:create
@@ -49,7 +49,6 @@ get_cli:
 flutter: 
   uses-material-design: true
   assets:
-    - .env
     - assets/
     - assets/games/
     - assets/games/dino/

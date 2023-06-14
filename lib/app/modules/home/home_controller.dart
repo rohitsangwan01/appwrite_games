@@ -2,8 +2,10 @@ import 'package:appwrite/models.dart';
 import 'package:appwrite_telegram/app/data/app_data.dart';
 import 'package:appwrite_telegram/app/models/chess_match.dart';
 import 'package:appwrite_telegram/app/models/games_model.dart';
+import 'package:appwrite_telegram/app/models/tg_popup_button.dart';
 import 'package:appwrite_telegram/app/services/api_service.dart';
 import 'package:appwrite_telegram/app/routes/app_pages.dart';
+import 'package:appwrite_telegram/app/services/telegram_web_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,42 +38,19 @@ class HomeController extends GetxController {
       ];
 
   void onChessGameTap(BuildContext context) async {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Choose Color"),
-          backgroundColor: Theme.of(context).primaryColor,
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Card(
-                elevation: 5,
-                child: ListTile(
-                  tileColor: Colors.white,
-                  title: const Text(
-                    "White",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () async {
-                    Navigator.of(context).pop();
-                    _openChessGame(false);
-                  },
-                ),
-              ),
-              Card(
-                elevation: 5,
-                child: ListTile(
-                  title: const Text("Black"),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    _openChessGame(true);
-                  },
-                ),
-              ),
-            ],
-          ),
-        );
+    TelegramWebService.to.showAlertDialog(
+      title: "Choose Color",
+      message: "Choose a color to play with",
+      buttons: [
+        TGPopupButton(id: "white", text: "White"),
+        TGPopupButton(id: "black", text: "Black"),
+      ],
+      onTap: (buttonId) {
+        if (buttonId == "white") {
+          _openChessGame(false);
+        } else {
+          _openChessGame(true);
+        }
       },
     );
   }
@@ -89,30 +68,26 @@ class HomeController extends GetxController {
   }
 
   void logout(BuildContext context) async {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Logout Confirmation"),
-          backgroundColor: Theme.of(context).cardColor,
-          content: const Text("Are you sure you want to logout?"),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text("Cancel"),
-            ),
-            TextButton(
-              onPressed: () async {
-                Navigator.of(context).pop();
-                await ApiService.to.logout();
-                Get.offAllNamed(Routes.LOGIN);
-              },
-              child: const Text("Yes"),
-            ),
-          ],
-        );
+    TelegramWebService.to.showAlertDialog(
+      title: "Logout Confirmation",
+      message: "Are you sure you want to logout?",
+      buttons: [
+        TGPopupButton(
+          id: "cancel",
+          text: "Cancel",
+          type: TGPopupButtonType.cancel,
+        ),
+        TGPopupButton(
+          id: "yes",
+          text: "Yes",
+          type: TGPopupButtonType.ok,
+        ),
+      ],
+      onTap: (buttonId) async {
+        if (buttonId == "yes") {
+          Get.offAllNamed(Routes.LOGIN);
+          await ApiService.to.logout();
+        }
       },
     );
   }

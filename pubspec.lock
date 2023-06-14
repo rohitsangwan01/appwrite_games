@@ -350,6 +350,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  flutter_telegram_web_app:
+    dependency: "direct main"
+    description:
+      name: flutter_telegram_web_app
+      sha256: b1eedf9ca5372730adfbde3303ec3fe8c853b20707582e4074887ebbcda2347b
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter

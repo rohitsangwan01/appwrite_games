@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:appwrite/models.dart';
 import 'package:appwrite_telegram/app/data/ui.dart';
 import 'package:appwrite_telegram/app/services/api_service.dart';
-import 'package:flutter/material.dart';
+import 'package:appwrite_telegram/app/services/telegram_web_service.dart';
 import 'package:flutter_snake/flutter_snake.dart';
 import 'package:get/get.dart';
 
@@ -104,11 +104,7 @@ class GameSnakeController extends GetxController {
     String title,
     String content,
   ) {
-    Get.defaultDialog(
-      backgroundColor: Theme.of(Get.context!).cardColor,
-      title: title,
-      content: Text(content),
-    );
+    TelegramWebService.to.showAlertDialog(title: title, message: content);
   }
 
   @override
