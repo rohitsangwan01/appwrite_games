@@ -1,7 +1,7 @@
 import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart' as models;
 import 'package:appwrite_telegram/app/services/storage_service.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:appwrite_telegram/env/env.dart';
 import 'package:get/get.dart';
 
 class ApiService extends GetxService {
@@ -18,12 +18,7 @@ class ApiService extends GetxService {
 
   Future<ApiService> init() async {
     _client = Client();
-    String? endPoint = dotenv.env['END_POINT'];
-    String? projectId = dotenv.env['PROJECT_ID'];
-    if (endPoint == null || projectId == null) {
-      throw "Please configure .env file properly";
-    }
-    _client.setEndpoint(endPoint).setProject(projectId);
+    _client.setEndpoint(Env.endPoint).setProject(Env.projectId);
     _realtime = Realtime(_client);
     _databases = Databases(_client);
     _account = Account(_client);

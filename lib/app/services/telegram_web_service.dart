@@ -2,12 +2,12 @@
 // import 'package:flutter_telegram_web_app/flutter_telegram_web_app.dart';
 import 'package:get/get.dart';
 
+/// TelegramWebService file to access telegram web app features
 class TelegramWebService extends GetxService {
   static TelegramWebService get to => Get.find();
 
-  RxDouble viewPortHeight = 0.0.obs;
-  RxBool isViewPortHeightChanging = false.obs;
-
+  // RxDouble viewPortHeight = 0.0.obs;
+  // RxBool isViewPortHeightChanging = false.obs;
   // bool _isDarkMode = false;
 
   Future<TelegramWebService> init() async {
@@ -27,14 +27,7 @@ class TelegramWebService extends GetxService {
     // });
 
     // TelegramWebEvent.setThemeChangeListener((isDarkMode, params) {
-    //   if (_isDarkMode == isDarkMode) return;
-    //   _isDarkMode = isDarkMode;
-    //   //TODO: fix this
-    //   ThemeMode themeMode = isDarkMode ? ThemeMode.dark : ThemeMode.light;
-    //   Get.changeThemeMode(themeMode);
-    //   // Get.changeTheme(
-    //   //   isDarkMode ? TelegramTheme.dark : TelegramTheme.light,
-    //   // );
+    //   Change theme when changed in telgram
     // });
   }
 }
